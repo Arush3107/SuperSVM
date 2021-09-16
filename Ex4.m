@@ -30,5 +30,7 @@ for k = 1:5000
 end
 x
 semilogy(residual_cache);
-xlabel('iterations');
+ylabel("Residual difference");
+xlabel("Iterations");
+legend("Difference between successive iterations");
 toc;

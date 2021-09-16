@@ -15,13 +15,14 @@ mu = 1;%norm(Q'*q, inf);
 %%
 tic;
 
-tolerance = 10^-20;
+tolerance = 1e-8;
 residual_cache = [];
 x0 = zeros(n,1);
 u0 = zeros(n,1);
+v = zeros(n,1);
 z0 = zeros(n,1);
 L = norm(Q'*Q);
-lambda = 1/L;
+lambda = 0.99/L;
 x = x0;
 u = u0;
 z = z0;
@@ -38,5 +39,8 @@ for k = 1:5000
 end
 x
 semilogy(residual_cache);
-xlabel('iterations');
+
+ylabel("Residual difference");
+xlabel("Iterations");
+legend("Difference between successive iterations");
 toc;

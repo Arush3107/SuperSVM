@@ -15,7 +15,7 @@ mu = 1;%0.6*norm(Q'*q, inf);
 %%
 tic;
 
-tolerance = 10^-20;
+tolerance = 1e-8;
 residual_cache = [];
 x0 = zeros(n,1);
 L = norm(Q'*Q);
