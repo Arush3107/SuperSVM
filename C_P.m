@@ -2,9 +2,10 @@ n_classes = 4;
 n_features = 8;
 n_samples = 100;
 D =   [randn(n_samples,n_features) randi(n_classes,n_samples,1)];%dataset
+%D = readmatrix(train);
 D_transformed = D;
 for i = 1:n_samples
-   D_transformed(i,1:end-1) = feature_transformation(D(i,1:end-1)); % 
+    D_transformed(i,1:end-1) = feature_transformation(D(i,1:end-1)); %
 end
 problem_data.n_classes = n_classes;
 problem_data.data = D_transformed;
@@ -32,3 +33,21 @@ adjT = adjoperatorT(y,problem_data);
 k_1 = x'*adjT;
 k_2 = T'*y;
 k_1 - k_2
+
+%%
+cache = [];
+for i = 1:50
+    alfa_1 = 0.99*(norm(T)^2);
+    alfa_2 = 0.99*(norm(T)^2);
+    mu = 0.6*norm(x, inf);
+    L = norm(x'*x);
+    lambda = 1/L;
+    v = x - alfa_1*adjoperatorT(y,problem_data);
+    x_plus = proxg(v,lambda,mu);
+    y_plus = y + alfa_2*operatorT((2*x_plus(:,1) - x),problem_data);
+    r = rfactor(y_plus,problem_data);
+    proj_data = y_plus + alfa_2*r;
+    y_out = projection(proj_data,10);
+    cache = [cache;norm([x;y] - [x_plus;y_plus])];
+end
+plot(cache);
