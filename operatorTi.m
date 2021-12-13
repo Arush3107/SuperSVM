@@ -12,8 +12,7 @@ function t_i = operatorTi(x, i, problem_data)
     m = size(problem_data.data,2)-1; 
     k = problem_data.n_classes;
     if size(x) ~= [(m+1)*k,1],error("x has wrong dimensions");end
-    
-    x_z_i =  x(((z_i-1)*(m+1) + 1):(z_i*(m+1)));
+    x_z_i =  x(((z_i-1)*(m+1) + 1):(z_i*(m+1))); 
     t_i = zeros(k(1,1),1);
      for j = 1:k
          t_i(j,1) = psi_u_i'*(x(((j-1)*(m+1) + 1):(j*(m+1))) - x_z_i);
