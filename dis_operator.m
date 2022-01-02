@@ -1,8 +1,9 @@
 function d = dis_operator(x, test_data, problem_data)
-%OPERATORT
-%
-%
-%
+%Discrimination function
+%Inputs - 
+%           x - predictor model vector
+%           test_data - users test data
+%           problem_data - Sample data with the given details from the user
 
 d = [];
 features = problem_data.n_features+1;

@@ -7,4 +7,6 @@ feature_transformation is used to transform or scale the input training data and
 rfactor is used to calculate the hinge loss.
 Projection is used to calculate the Projection of the vector.
 svm_training is used to formulate the calssification model from training data.
-dis is used to predict the class of the test data.
+dis_operator is used to predict the class of the test data.
+
+Basic outline of the project is to develop an effective predictor model from the input data.

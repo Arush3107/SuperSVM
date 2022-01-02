@@ -1,6 +1,8 @@
 function adjT = adjoperatorT(y, problem_data)
 %ADJOPERATORT
-%
+%Inputs - 
+%           y - vector
+%           problem_data      Sample data with the given details from the user
 %
 
 adjT = 0;

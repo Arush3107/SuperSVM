@@ -1,13 +1,10 @@
 function proj = projection(y,a)
 
 %%%PROJECTION on to a simplex L_1 ball.
+%Inputs - 
+%           y - vector
+%           a - user input
 %
-%
-%
-%%%Inputs y and r
-
-%Step 1
-
 v = y(1);
 v_star = [];
 rho = y(1) - a;

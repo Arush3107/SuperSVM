@@ -1,9 +1,11 @@
 function r = rfactor(y,problem_data)
 
 %%%RFACTOR calculation
-%
-%
-%
+%inputs -
+%        y  - vector
+%        problem data - data along with user inputs.
+%Outputs -
+%        r-factor or simply mu_l vector
 %
 
 r = problem_data.lambda.*ones(size(y,1),1)*problem_data.mu;

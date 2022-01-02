@@ -1,10 +1,10 @@
 function adjT_i = adjoperatorTi(y, i, problem_data)
 %ADJOPERATORTI
-%
-%
-%
-
-% class = problem_data.class;
+%Inputs - 
+%           y - vector
+%           i - index of sample (i goes from 1 upto L)
+%           problem_data - Sample data with the given details from the user
+%   
  phi_u_i = problem_data.data(i,1:end-1)'; % row vector till penultimate column is because we need not to consider the calsses of the data
  psi_u_i = [phi_u_i;1];
  z_i = problem_data.data(i,end); % class
